@@ -14,7 +14,6 @@ const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
 const passport = require("passport")
 
-console.log(`ISA::::::: ${process.env.DB_URL}`)
 
 mongoose
   .connect(`${process.env.DB_URL}`, {useNewUrlParser: true})
@@ -76,8 +75,6 @@ app.use(session({
 app.use(flash());
 require('./passport')(app);
 
-app.use(passport.initialize());
-app.use(passport.session());
   
 app.use(cors({
   credentials: true,
@@ -90,8 +87,6 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
-app.use((req, res, next) => {
-  res.sendFile(__dirname + "/public/index.html");
- });
+
 
 module.exports = app;
