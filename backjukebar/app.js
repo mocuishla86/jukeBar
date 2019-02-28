@@ -13,7 +13,9 @@ const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
 const passport = require("passport")
-    
+
+console.log(`ISA::::::: ${process.env.DB_URL}`)
+
 mongoose
   .connect(`${process.env.DB_URL}`, {useNewUrlParser: true})
   .then(x => {
