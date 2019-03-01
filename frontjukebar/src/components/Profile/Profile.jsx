@@ -7,7 +7,7 @@ export default class Profile extends Component {
       <div>
         PROFILE
         <p><Link to="/profile/edit">Edit</Link></p>
-        <p><Link to="/create">Create Playlist</Link></p>
+        <p><Link to="/create-party">Create Playlist</Link></p>
         <p><Link to="/playlists">My playlists</Link></p>
       </div>
     )

@@ -6,7 +6,7 @@ export default class Login extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { username: '', password: '' };
+    this.state = { username: 'marujon', password: '1111' };
     this.service = new AuthService();
   }
 
@@ -57,7 +57,8 @@ export default class Login extends Component {
           <br />
           <label htmlFor="password">Password</label>
           <input onChange={this.handleChange} type="password" id="password" name="password" value={this.state.password} />
-          </div><br />
+          </div>
+          <br />
           <button onClick={this.handleSubmit}>Log in</button>
           <p>{this.state.error ? 'Wrong user or password': ''}</p>
       </div>

@@ -87,6 +87,8 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
+const partyRouter = require('./routes/party');
+app.use('/party', partyRouter);
 
 
 module.exports = app;
