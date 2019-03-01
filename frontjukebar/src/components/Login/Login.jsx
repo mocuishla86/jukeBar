@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AuthService from '../auth/service';
+import { Redirect } from 'react-router'
 
 export default class Login extends Component {
 
@@ -24,7 +25,7 @@ export default class Login extends Component {
           username: username,
           password: password,
           error: false,
-          success: true
+          logged: true
         });
 
         this.props.getUser(response)
@@ -40,6 +41,13 @@ export default class Login extends Component {
 
 
   render() {
+    //https://stackoverflow.com/questions/43230194/how-to-use-redirect-in-the-new-react-router-dom-of-reactjs
+    const { logged } = this.state;
+
+    if (logged) {
+      return <Redirect to='/profile'/>;
+    }
+
     return (
       <div>
        <h1>Log in</h1>
@@ -51,7 +59,7 @@ export default class Login extends Component {
           <input onChange={this.handleChange} type="password" id="password" name="password" value={this.state.password} />
           </div><br />
           <button onClick={this.handleSubmit}>Log in</button>
-          <p>{this.state.success ? 'You are logged in' : ''}</p>
+          <p>{this.state.error ? 'Wrong user or password': ''}</p>
       </div>
     )
   }

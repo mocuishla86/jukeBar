@@ -15,7 +15,7 @@ router.post("/login", (req, res, next) => {
       return;
     }
     if (!theUser) {
-      res.status(500).json({ failureDetails });
+      res.status(401).json({ failureDetails });
       return;
     }
 
