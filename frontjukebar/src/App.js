@@ -14,19 +14,37 @@ import ProfileEdit from "./components/ProfileEdit/ProfileEdit";
 import PlaylistDetails from "./components/PlaylistDetails/PlaylistDetails";
 import MainUser from "./components/MainUser.js/MainUser";
 import CreateParty from "./components/CreateParty/CreateParty";
+import service from "./components/auth/service";
 
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = { logged: null }
+    this.service = new service()
+  }
+
+  getUser = (userObj) => {
+    this.setState({
+      loggedInUser: userObj
+    })
+  }
+
+  
+
+
   render() {
     return (
       <div className="App">
       {/* <Main /> */}
       <h2>jukeBar</h2>
+      
       <Link to="/main">Start!</Link>
         <Switch>
           <Route exact path="/main" component={Main} />
-          <Route exact path="/signup" component={Signup}/>
-          <Route exact path="/login" component={Login}/>
+          <Route exact path="/signup" render={() => <Signup getUser={this.getUser} />}/>
+          <Route exact path="/login" render={() => <Login getUser={this.getUser} />}/>
           <Route exact path="/profile" component={Profile}/>   
           <Route exact path="/profile/edit" component={ProfileEdit}/>
           <Route exact path="/create-party" component={CreateParty}/>
