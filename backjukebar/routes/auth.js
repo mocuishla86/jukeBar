@@ -91,4 +91,28 @@ router.get("/loggedin", (req, res, next) => {
   res.status(403).json({ message: "Unauthorized" });
 });
 
+router.get("/spotify", (req, res, next) => {
+  passport.authenticate("local", (err, theUser, failureDetails) => {
+    // Check for errors
+    if (err) {
+      res.status(500).json({ message: "something went bad" });
+      return;
+    }
+    if (!theUser) {
+      res.status(401).json({ failureDetails });
+      return;
+    }
+
+    // Return user and logged in
+    req.login(theUser, err => {
+      if (err) {
+        res.status(500).json({ message: "login proccess went bad" });
+        return;
+      }
+      res.status(200).json(theUser);
+      return;
+    });
+  })(req, res, next);
+});
+
 module.exports = router;

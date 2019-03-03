@@ -3,6 +3,7 @@ const Schema   = mongoose.Schema;
 
 const partySchema = new Schema({
   partyName: String,
+  // spotifyListId: String,
 }, {
   timestamps: {
     createdAt: 'created_at',

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PartyService from "../party/party";
+import { Redirect } from 'react-router'
 
 export default class CreateParty extends Component {
 
@@ -22,6 +23,7 @@ export default class CreateParty extends Component {
     this.service.createParty(partyName)
       .then(response => {
         this.setState({
+          partySaved: true,
           message:"Party saved"
         });
       })
@@ -33,6 +35,13 @@ export default class CreateParty extends Component {
   }
 
   render() {
+
+    const { partySaved } = this.state;
+
+    if (partySaved) {
+      return <Redirect to='/playlists'/>;
+    }
+
     return (
       <div>
         <p>Create Party</p>
@@ -49,6 +58,7 @@ export default class CreateParty extends Component {
         <br />
         <button onClick={this.handleSubmit}>Save</button>
         <span>{this.state.message}</span>
+       
         <Link to="/search">Search</Link>
       </div>
     );
