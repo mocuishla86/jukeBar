@@ -38,9 +38,9 @@ class App extends Component {
     return (
       <div className="App">
       {/* <Main /> */}
-      <h2>jukeBar</h2>
+      <h2 class="main-logo">jukeBar</h2>
       
-      <Link to="/main">Start!</Link>
+      
         <Switch>
           <Route exact path="/main" component={Main} />
           <Route exact path="/signup" render={() => <Signup getUser={this.getUser} />}/>
@@ -54,6 +54,7 @@ class App extends Component {
           <Route exact path="/main-user" component={MainUser}/>
           <Route exact path="/search" component={Search}/>
         </Switch>
+        <Link to="/main" className="Home">HOME</Link>
       </div>
     );
   }

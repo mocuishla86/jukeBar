@@ -4,7 +4,7 @@ const Party = require("../models/Party");
 const Spotify = require("../spotify/spotify");
 
 const router = express.Router();
-//const spotify = new Spotify();
+const spotify = new Spotify();
 
 router.get('/', (req, res, next) => {
   Party.find()
@@ -29,7 +29,24 @@ router.post("/", (req, res, next) => {
   .catch(error => res.status(500).json(error));
 });
 
+// router.post("/addsong", (req, res, next) => {
 
+//   console.log(spotify)
+//   spotify.createList('sandrs');
+//   // const songName = req.body.songName; (futuro id de spotify)
+//   // if (songName === "") {
+//   //   res.status(400).json({ message: "Please enter a song" });
+//   //   return;
+//   // }
+//   // const newParty = new Party({
+//   //   partyName
+//   //   //, spotifyListId
+//   // });
+
+//   // newParty.save()
+//   // .then(savedParty => res.status(200).json({data: savedParty})) //volver a añadir savedParty si falla
+//   // .catch(error => res.status(500).json(error));
+// });
 
 
 
@@ -45,4 +62,5 @@ router.post("/", (req, res, next) => {
 //   console.log(JSON.stringify(error))
 //     res.status(500).json("Error creating playlist: "+JSON.stringify(error))
 //  })
+
 module.exports = router;

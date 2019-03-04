@@ -22,4 +22,23 @@ export default class PartyService {
         throw error;
       });
   };
+
+
+  getPlayList = () => {
+    return this.service.get('/')
+    .then(data => {
+      let onePlaylist = data.data;
+      return onePlaylist;
+    })
+  }
+
+  // addSong = songId => {
+  //   return this.service
+  //   .post("/addsong", {songId})
+  //   .then(response => response.data)
+  //   .catch(error => {
+  //     console.log(error);
+  //     throw error;
+  //   })
+  // }
 }

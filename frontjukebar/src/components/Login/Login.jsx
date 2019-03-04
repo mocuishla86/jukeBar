@@ -49,7 +49,7 @@ export default class Login extends Component {
     }
 
     return (
-      <div>
+      <div class="main-login-signup">
        <h1>Log in</h1>
         <div className="left-column">
           <label htmlFor="username">Username</label>
