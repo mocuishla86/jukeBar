@@ -42,6 +42,20 @@ class AuthService {
       .then(response => response.data)
   }
 
+    loginSpotify = (code) =>  {
+        return this.service.post("login-spotify", {code },{
+            validateStatus: status => {
+                return status >= 200 && status < 300; // Reject only if the status code is greater than or equal to 500
+            }})
+            .then(response => {
+                return response.data
+            })
+            .catch(error => {
+                console.log(error)
+                //https://medium.com/front-end-weekly/error-propagation-in-javascript-with-error-translation-pattern-78cf7178fe92
+                throw error
+            })
+    }
 }
 
 export default AuthService;

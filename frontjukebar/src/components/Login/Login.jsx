@@ -21,14 +21,17 @@ export default class Login extends Component {
 
     this.service.login(username, password)
       .then(response => {
+
+console.log("Respuesta login: " + JSON.stringify(response))
         this.setState({
           username: username,
           password: password,
           error: false,
-          logged: true
+          logged: true,
+            spotifyLoginUrl: response.spotifyLoginUrl
         });
 
-        this.props.getUser(response)
+        this.props.getUser(response.theUser)
       })
       .catch(error => {
         this.setState({
@@ -45,7 +48,8 @@ export default class Login extends Component {
     const { logged } = this.state;
 
     if (logged) {
-      return <Redirect to='/profile'/>;
+      window.location = this.state.spotifyLoginUrl
+      return null;
     }
 
     return (
@@ -65,3 +69,4 @@ export default class Login extends Component {
     )
   }
 }
+

@@ -90,5 +90,7 @@ app.use('/auth', authRoutes);
 const partyRouter = require('./routes/party');
 app.use('/party', partyRouter);
 
+const partySpotifyRouter = require('./routes/spotifyRoute')
+app.use('/spotify', partySpotifyRouter);
 
 module.exports = app;
