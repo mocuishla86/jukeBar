@@ -3,9 +3,7 @@ const passport = require("passport");
 const Party = require("../models/Party");
 const Spotify = require("../spotify/spotify2"); //hte
 const SpotifyToken = require("../models/SpotifyToken");
-
 const router = express.Router();
-//const spotify = new Spotify();
 
 router.get("/", (req, res, next) => {
   Party.find()

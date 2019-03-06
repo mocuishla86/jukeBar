@@ -84,6 +84,17 @@ Spotify2.prototype.createPlaylist= function(token, name, userId) {
     });
 }
 
+Spotify2.prototype.searchTrack=function(token, track, userId){
+    this.spotifyApi.setAccessToken(token);
+
+    return this.spotifyApi.searchTracks(track, userId)
+    .then(data => data.body)
+    .catch(error => {
+        console.log("Error searching track")
+        throw error;
+    })
+}
+
 
 
 // Spotify2.prototype.createPlaylist = function(){
