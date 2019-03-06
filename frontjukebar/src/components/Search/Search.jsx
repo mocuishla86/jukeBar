@@ -5,7 +5,7 @@ import TrackService from "../trackService/trackService";
 export default class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = { track: "" };
+    this.state = { track: false };
     this.service = new TrackService();
   }
   handleChange = e => {
@@ -19,10 +19,12 @@ export default class Search extends Component {
 
     this.service
       .searchTrack(track)
-      .then(response => {
+      .then(tracks => {
+        
         this.setState({
           trackHere: true,
-          message: "your track"
+          message: "your track",
+          track:tracks
         });
       })
       .catch(error => {
@@ -35,7 +37,7 @@ export default class Search extends Component {
 
 
   render() {
-    
+    const { trackHere } = this.state;
 
     return (
       <div>
@@ -56,6 +58,7 @@ export default class Search extends Component {
         <br />
         <button onClick={this.handleSubmit}>Go!</button>
         <span>{this.state.message}</span>
+        
         
       </div>
     )

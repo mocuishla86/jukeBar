@@ -9,9 +9,9 @@ export default class TrackService {
     this.service = service;
   }
 
-  getTrack = () => {
-    return this.service.get("/").then(data => data.data);
-  };
+  // getTrack = () => {
+  //   return this.service.get("/").then(data => data.data);
+  // };
 
   searchTrack = track => {
     return this.service

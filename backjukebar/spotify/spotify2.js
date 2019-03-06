@@ -96,7 +96,6 @@ Spotify2.prototype.searchTrack=function(token, track, userId){
 }
 
 
-
 // Spotify2.prototype.createPlaylist = function(){
 //     this.spotifyApi.createPlaylist()
 // }
