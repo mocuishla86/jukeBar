@@ -137,7 +137,7 @@ router.get("/login-spotify", (req, res, next) => {
   var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
   const spotify = new Spotify(fullUrl);
   const code = req.query.code;
-  console.log("Code Spotify: " + code + " for user \n " + req.user); //REQ.USER
+  console.log("-------------------------Code Spotify: " + code + " for user \n " + req.user); //REQ.USER
 
   spotify
     .setAuthorizationCodeGrant(req.query.code)
@@ -167,5 +167,6 @@ router.get("/login-spotify", (req, res, next) => {
       res.status(500).json({ message: "spotify login proccess went bad" });
     });
 });
+
 
 module.exports = router;
