@@ -20,6 +20,7 @@ router.get("/:partyId", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
+  
   const partyName = req.body.partyName;
   if (partyName === "") {
     res.status(400).json({ message: "Please provide a non empty party name" });
@@ -68,7 +69,7 @@ router.post("/", (req, res, next) => {
             newParty
               .save()
               .then(savedParty => res.status(200).json({ data: savedParty })) //volver a añadir savedParty si falla
-              .catch(error => res.status(500).json(error));
+              .catch(error => res.status(500).json("AQUI ESTA EL ERROR AL CREAR"));
           })
           .catch(error => {
             console.log(

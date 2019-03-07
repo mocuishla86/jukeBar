@@ -3,7 +3,7 @@ import axios from "axios";
 export default class TrackService {
   constructor() {
     let service = axios.create({
-      baseURL: "http://localhost:3001/tracks",
+      baseURL: `${process.env.REACT_APP_API_URL}/tracks`,
       withCredentials: true
     });
     this.service = service;

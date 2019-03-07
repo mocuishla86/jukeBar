@@ -37,9 +37,11 @@ export default class Playlists extends Component {
             <p>Party name: {party.partyName} <Link to={"/playlists-detail/"+party._id}><h4 className="go-link">GO!</h4></Link></p>
            
           </div>
+         
           </div>
         )
       })}
+       <Link to="/profile">Back</Link>
       </div>
     );
   }

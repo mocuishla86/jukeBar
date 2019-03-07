@@ -77,7 +77,7 @@ Spotify2.prototype.createPlaylist= function(token, name, userId) {
     this.spotifyApi.setAccessToken(token);
 
     console.log("El usuario es "+userId);
-    return  this.spotifyApi.createPlaylist(userId,name,{ 'public' : true, 'collaborative': true })
+    return  this.spotifyApi.createPlaylist(userId,name,{ 'public' : true})
     .then(data => data.body)
     .catch(error => {
       console.log("Error creating playlist ")

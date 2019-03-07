@@ -42,7 +42,7 @@ class App extends Component {
       {/* <Main /> */}
       <h2 class="main-logo">jukeBar</h2>
      
-      
+      <Link to="/main" className="Home">HOME</Link>
         <Switch>
           <Route exact path="/main" component={Main} />
           <Route exact path="/signup" render={() => <Signup getUser={this.getUser} />}/>
@@ -58,7 +58,7 @@ class App extends Component {
           <Route exact path="/add-track-to-party/:partyId" component={Search}/>
           <Route exact path="/create-spotify-party" component={CreateSpotifyParty}/>
         </Switch>
-        <Link to="/main" className="Home">HOME</Link>
+        
       </div>
     );
   }

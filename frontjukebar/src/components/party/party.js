@@ -3,7 +3,7 @@ import axios from "axios";
 export default class PartyService {
   constructor() {
     let service = axios.create({
-      baseURL: "http://localhost:3001/party",
+      baseURL: `${process.env.REACT_APP_API_URL}/party`,
       withCredentials: true
     });
     this.service = service;
@@ -18,7 +18,7 @@ export default class PartyService {
       .post("/", { partyName })
       .then(response => response.data)
       .catch(error => {
-        console.log(error);
+        console.log("AAAAAAAAAAAA");
         throw error;
       });
   };

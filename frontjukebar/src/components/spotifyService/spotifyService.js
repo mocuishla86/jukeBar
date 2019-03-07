@@ -3,7 +3,7 @@ import axios from "axios";
 export default class SpotifyService {
   constructor(){
     let service = axios.create({
-      baseURL: "http://localhost:3001/spotify", //hte qué url va aqui?
+      baseURL: `${process.env.REACT_APP_API_URL}/spotify`, //hte qué url va aqui?
       withCredentials: true
     });
     this.service = service;
