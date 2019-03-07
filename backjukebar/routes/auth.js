@@ -133,40 +133,7 @@ router.post("/login-spotify", (req, res, next) => {
     });
 });
 
-router.get("/login-spotify", (req, res, next) => {
-  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-  const spotify = new Spotify(fullUrl);
-  const code = req.query.code;
-  console.log("-------------------------Code Spotify: " + code + " for user \n " + req.user); //REQ.USER
 
-  spotify
-    .setAuthorizationCodeGrant(req.query.code)
-    .then(token_data => {
-      console.log("Logged spotify in back: " + JSON.stringify(token_data));
-
-      // https://stackoverflow.com/a/10266789
-      // Borrar todos los SpotifyToken que pertenezcan al usuario actual, es edcir, que tengan userid = req.user._id
-      SpotifyToken.find({ userID: req.user._id })
-        .remove()
-        .exec();
-
-      //Añadir ID de usuario, data.token, data.refresh_token (revisar nombre de propiedaes)-
-      const token = new SpotifyToken({
-        userID: req.user._id,
-        access_token: token_data.access_token,
-        refresh_token: token_data.refresh_token
-      });
-
-      token
-        .save()
-        .then(savedToken => res.status(200).json({})) //volver a añadir savedParty si falla
-        .catch(error => res.status(500).json(error));
-    })
-    .catch(error => {
-      console.log("Not Logged spotify in back");
-      res.status(500).json({ message: "spotify login proccess went bad" });
-    });
-});
 
 
 module.exports = router;

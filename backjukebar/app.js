@@ -93,4 +93,8 @@ app.use('/spotify', partySpotifyRouter);
 const trackRouter = require('./routes/trackRoute')
 app.use('/tracks', trackRouter);
 
+app.use((req, res) => {
+  res.sendFile(__dirname+"/public/index.html");
+})
+
 module.exports = app;

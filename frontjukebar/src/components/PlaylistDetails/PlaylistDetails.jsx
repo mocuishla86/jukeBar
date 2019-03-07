@@ -34,7 +34,7 @@ export default class PlaylistDetails extends Component {
 
     return (
       <div>
-        <div>Playlist: {this.state.playlist.partyName}</div>
+        <div className="party-title">Playlist: {this.state.playlist.partyName}</div>
 
         <div>Created at: {this.state.playlist.created_at}</div>
           
