@@ -5,6 +5,7 @@ const Spotify = require("../spotify/spotify2"); //hte
 const SpotifyToken = require("../models/SpotifyToken");
 const router = express.Router();
 
+
 router.get("/", (req, res, next) => {
   Party.find()
     .then(parties => res.status(200).json({ data: parties }))
@@ -20,6 +21,8 @@ router.get("/:partyId", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
+  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  console.log(fullUrl)
   
   const partyName = req.body.partyName;
   if (partyName === "") {
@@ -43,8 +46,7 @@ router.post("/", (req, res, next) => {
     }
 
     const token = spotiyToken.access_token;
-
-    const spotify = new Spotify();
+    const spotify = new Spotify(fullUrl);
 
     // 2. Obtener usuario actual de Spotify
     spotify

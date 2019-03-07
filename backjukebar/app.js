@@ -14,7 +14,6 @@ const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
 const passport = require("passport")
 
-
 mongoose
   .connect(`${process.env.DB_URL}`, {useNewUrlParser: true})
   .then(x => {
@@ -28,7 +27,6 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
-
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -75,7 +73,6 @@ app.use(session({
 app.use(flash());
 require('./passport')(app);
 
-  
 app.use(cors({
   credentials: true,
   origin: ['http://localhost:3000'],

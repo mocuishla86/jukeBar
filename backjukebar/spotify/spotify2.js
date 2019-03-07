@@ -1,10 +1,17 @@
 var SpotifyWebApi = require('spotify-web-api-node');
 
-function Spotify2() {
+function Spotify2(fullUrl) {
+let URL='';
+console.log(fullUrl)
+if(fullUrl.includes('localhost')){
+    URL="http://localhost:3000/login-spotify";
+}else{
+    URL="https://juke-bar0119.herokuapp.com/login-spotify";
+}
   this.spotifyApi = new SpotifyWebApi({
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      redirectUri: "http://localhost:3000/login-spotify"
+      redirectUri: URL
   });
 
   
