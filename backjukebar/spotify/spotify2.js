@@ -4,7 +4,7 @@ function Spotify2(fullUrl) {
 console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
 console.log(fullUrl)
 console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-let URL="http://localhost:3000/login-spotify";
+let URL="";
 if(fullUrl && fullUrl.includes('localhost')){
     URL="http://localhost:3000/login-spotify";
 }else{
@@ -17,7 +17,7 @@ console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
   this.spotifyApi = new SpotifyWebApi({
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      redirectUri: URL
+      redirectUri: process.env.REDIRECT_URI
   });
 
   
