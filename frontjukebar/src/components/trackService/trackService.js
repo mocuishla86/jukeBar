@@ -9,13 +9,23 @@ export default class TrackService {
     this.service = service;
   }
 
-  // getTrack = () => {
-  //   return this.service.get("/").then(data => data.data);
-  // };
+  getTrack = () => {
+    return this.service.get("/").then(data => data.data);
+  };
 
-  searchTrack = track => {
+  searchTrack = (track, userId) => {
     return this.service
-      .post("/", { track })
+      .post("/search", { track, userId })
+      .then(response => response.data)
+      .catch(error => {
+        console.log(error);
+        throw error;
+      });
+  };
+
+  addTrack = (track, partyId) => {
+    return this.service
+      .post("/", { track, partyId })
       .then(response => response.data)
       .catch(error => {
         console.log(error);

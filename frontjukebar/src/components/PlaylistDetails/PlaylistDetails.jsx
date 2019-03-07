@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PartyService from "../party/party";
+import { Link } from "react-router-dom";
 
 export default class PlaylistDetails extends Component {
   constructor(props) {
@@ -14,7 +15,8 @@ export default class PlaylistDetails extends Component {
 
   getPlayList = () => {
     console.log(this.state)
-    let playlistId = "5c79c383e461563a99137b34";
+     //https://stackoverflow.com/a/44860918
+    let playlistId = this.props.match.params.partyId;
     console.log(playlistId)
     this.PartyService.getPlayList(playlistId)
       .then(playlistReturnedByTheService => {
@@ -35,8 +37,8 @@ export default class PlaylistDetails extends Component {
         <div>Playlist: {this.state.playlist.partyName}</div>
 
         <div>Created at: {this.state.playlist.created_at}</div>
-
-        <button>add song</button>
+          
+        <p><Link to={"/add-track-to-party/"+this.state.playlist._id}>add song</Link></p>
       </div>
     );
   }

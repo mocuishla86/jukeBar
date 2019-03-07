@@ -76,7 +76,8 @@ Spotify2.prototype.getUserId = function(token) {
 Spotify2.prototype.createPlaylist= function(token, name, userId) {
     this.spotifyApi.setAccessToken(token);
 
-    return  this.spotifyApi.createPlaylist(userId,name,{ 'public' : true })
+    console.log("El usuario es "+userId);
+    return  this.spotifyApi.createPlaylist(userId,name,{ 'public' : true, 'collaborative': true })
     .then(data => data.body)
     .catch(error => {
       console.log("Error creating playlist ")
@@ -84,10 +85,10 @@ Spotify2.prototype.createPlaylist= function(token, name, userId) {
     });
 }
 
-Spotify2.prototype.searchTrack=function(token, track, userId){
+Spotify2.prototype.searchTrack=function(token, track){
     this.spotifyApi.setAccessToken(token);
 
-    return this.spotifyApi.searchTracks(track, userId)
+    return this.spotifyApi.searchTracks(track)
     .then(data => data.body)
     .catch(error => {
         console.log("Error searching track")
@@ -95,20 +96,19 @@ Spotify2.prototype.searchTrack=function(token, track, userId){
     })
 }
 
+Spotify2.prototype.addTrack= function(token, spotifytrackId, spotifyListId) {
+    this.spotifyApi.setAccessToken(token);
 
-// Spotify2.prototype.createPlaylist = function(){
-//     this.spotifyApi.createPlaylist()
-// }
-// spotifyApi.createPlaylist('My Cool Playlist', { 'public' : false })
-//   .then(function(data) {
-//     console.log('Created playlist!');
-//   }, function(err) {
-//     console.log('Something went wrong!', err);
-//   });
+    let trackArray = ["spotify:track:"+spotifytrackId] //Le tengo que pasar un array.
 
-
-
-
+    console.log("Voy a añadir: " + spotifytrackId + " a lista " +  spotifyListId)
+    return this.spotifyApi.addTracksToPlaylist(spotifyListId,trackArray)
+        .then(data => data.body)
+        .catch(error => {
+            console.log("Error adding track")
+            throw error;
+        })
+}
 
 
 module.exports = Spotify2;

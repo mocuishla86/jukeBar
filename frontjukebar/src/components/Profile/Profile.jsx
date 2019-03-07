@@ -9,8 +9,7 @@ export default class Profile extends Component {
         <p><Link to="/profile/edit">Edit</Link></p>
         <p><Link to="/create-party">Create Playlist</Link></p>
         <p><Link to="/playlists">My playlists</Link></p>
-        <p>PRUEBA</p>
-        <p><Link to="/create-spotify-party">CREATE SPOTIFY PARTY</Link></p>
+   
       </div>
     )
   }

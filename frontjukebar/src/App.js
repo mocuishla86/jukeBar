@@ -52,10 +52,10 @@ class App extends Component {
           <Route exact path="/profile/edit" component={ProfileEdit}/>
           <Route exact path="/create-party" component={CreateParty}/>
           <Route exact path="/playlists" component={Playlists}/>
-          <Route exact path="/playlists-detail" component={PlaylistDetails}/>
+          <Route exact path="/playlists-detail/:partyId" component={PlaylistDetails}/>
           <Route exact path="/addsong-vote" component={Addsong}/>
           <Route exact path="/main-user" component={MainUser}/>
-          <Route exact path="/search" component={Search}/>
+          <Route exact path="/add-track-to-party/:partyId" component={Search}/>
           <Route exact path="/create-spotify-party" component={CreateSpotifyParty}/>
         </Switch>
         <Link to="/main" className="Home">HOME</Link>

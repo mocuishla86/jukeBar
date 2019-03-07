@@ -2,9 +2,13 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const trackSchema = new Schema({
-  track: String,
+  name: String,
+  artist: String,
+  album: String,
+  image: String,
   spotifytrackId: String,
-  userId: String,
+  partyID:String,
+  votes:Number
 }, {
   timestamps: {
     createdAt: 'created_at',

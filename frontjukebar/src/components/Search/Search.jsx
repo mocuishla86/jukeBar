@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-
+import { Redirect } from 'react-router';
 import TrackService from "../trackService/trackService";
 
 export default class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = { track: false };
+    this.state = { tracks: [] };
     this.service = new TrackService();
   }
   handleChange = e => {
@@ -16,15 +16,17 @@ export default class Search extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const track = this.state.track;
-
+    
+    
     this.service
       .searchTrack(track)
-      .then(tracks => {
-        
+      .then(response => {
+        console.log(response)
         this.setState({
+          tracks:response,
           trackHere: true,
           message: "your track",
-          track:tracks
+
         });
       })
       .catch(error => {
@@ -34,10 +36,30 @@ export default class Search extends Component {
       });
   };
 
+  addTrack = track => {
+    const partyId = this.props.match.params.partyId;
+
+   this.service.addTrack(track,partyId)
+     .then( response => {
+        this.setState({
+          songAdded: true
+        });
+     })
+     .catch(error => {
+       this.setState({
+         message: "Error adding song"
+       });
+     });
+  };
+
 
 
   render() {
-    const { trackHere } = this.state;
+    const partyId = this.props.match.params.partyId;
+    if(this.state.songAdded) {
+      return <Redirect to={"/playlists-detail/"+partyId} />; 
+    }
+    
 
     return (
       <div>
@@ -57,8 +79,20 @@ export default class Search extends Component {
         </div>
         <br />
         <button onClick={this.handleSubmit}>Go!</button>
+        <div>
+          {this.state.tracks.map((track, index)=>{
+            return(
+              <div key={index}>
+              <div className="info-track">
+                <h3>{track.name}</h3>
+                <img src={track.image} alt={track.album}/>
+                <button onClick={() => this.addTrack(track)}>Add to party!</button>
+              </div>
+              </div>
+            )
+          })}
+        </div>
         <span>{this.state.message}</span>
-        
         
       </div>
     )

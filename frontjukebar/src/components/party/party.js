@@ -24,8 +24,8 @@ export default class PartyService {
   };
 
 
-  getPlayList = () => {
-    return this.service.get('/')
+  getPlayList = playlistId => {
+    return this.service.get('/'+playlistId)
     .then(data => {
       let onePlaylist = data.data;
       return onePlaylist;

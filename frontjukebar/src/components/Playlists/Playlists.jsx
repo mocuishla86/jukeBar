@@ -26,6 +26,7 @@ export default class Playlists extends Component {
 
 
   render() {
+    //https://stackoverflow.com/a/44860918
     return (
       <div>
       <h2>My Playlists</h2>
@@ -33,7 +34,7 @@ export default class Playlists extends Component {
         return(
           <div key={index}>
           <div>
-            <p>Party name: {party.partyName} <Link to="/playlists-detail">GO!</Link></p>
+            <p>Party name: {party.partyName} <Link to={"/playlists-detail/"+party._id}><h4 className="go-link">GO!</h4></Link></p>
            
           </div>
           </div>

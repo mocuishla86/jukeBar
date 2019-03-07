@@ -11,6 +11,14 @@ router.get("/", (req, res, next) => {
     .catch(err => res.status(500).json({ data: err }));
 });
 
+https://stackoverflow.com/a/20089634
+router.get("/:partyId", (req, res, next) => {
+  const partyId = req.params.partyId;
+  Party.findOne({_id: partyId})
+    .then(party => res.status(200).json(party))
+    .catch(err => res.status(500).json({ data: err }));
+});
+
 router.post("/", (req, res, next) => {
   const partyName = req.body.partyName;
   if (partyName === "") {
