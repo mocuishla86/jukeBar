@@ -19,7 +19,8 @@ router.post("/", (req, res, next) => {
   }
 
   //TODO: 1. CREO UNA LISTA DE SPOTIFY
-  const spotify = new Spotify();
+  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  const spotify = new Spotify(fullUrl);
 
   //¿de donde saco el token?
   //Por un lado tengo el user: req.user

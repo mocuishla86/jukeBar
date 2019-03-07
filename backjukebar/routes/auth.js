@@ -20,9 +20,10 @@ router.post("/login", (req, res, next) => {
       res.status(401).json({ failureDetails });
       return;
     }
-
-    const spotify = new Spotify();
-
+    var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+   
+    const spotify = new Spotify(fullUrl);
+    console.log('JUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUAN')
     const spotifyLoginUrl = spotify.createAuthorizeURL();
 
     // Return user and logged in
@@ -98,7 +99,8 @@ router.get("/loggedin", (req, res, next) => {
 });
 
 router.post("/login-spotify", (req, res, next) => {
-  const spotify = new Spotify();
+  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  const spotify = new Spotify(fullUrl);
   const code = req.body.code;
   console.log("Code Spotify: " + code + " for user \n " + req.user); //REQ.USER
 

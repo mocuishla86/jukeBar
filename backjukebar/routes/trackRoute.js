@@ -30,8 +30,8 @@ router.post("/search", (req, res, next) => {
     }
 
     const token = spotiyToken.access_token;
-
-    const spotify = new Spotify();
+    var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+    const spotify = new Spotify(fullUrl);
 
     // 2. Obtener usuario actual de Spotify
     spotify

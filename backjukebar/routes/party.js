@@ -21,8 +21,7 @@ router.get("/:partyId", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-  console.log(fullUrl)
+  
   
   const partyName = req.body.partyName;
   if (partyName === "") {
@@ -46,6 +45,8 @@ router.post("/", (req, res, next) => {
     }
 
     const token = spotiyToken.access_token;
+    var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  
     const spotify = new Spotify(fullUrl);
 
     // 2. Obtener usuario actual de Spotify

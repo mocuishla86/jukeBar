@@ -1,13 +1,19 @@
 var SpotifyWebApi = require('spotify-web-api-node');
 
 function Spotify2(fullUrl) {
-let URL='';
+console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
 console.log(fullUrl)
-if(fullUrl.includes('localhost')){
+console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+let URL="http://localhost:3000/login-spotify";
+if(fullUrl && fullUrl.includes('localhost')){
     URL="http://localhost:3000/login-spotify";
 }else{
     URL="https://juke-bar0119.herokuapp.com/login-spotify";
 }
+console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+console.log(fullUrl)
+console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+
   this.spotifyApi = new SpotifyWebApi({
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
