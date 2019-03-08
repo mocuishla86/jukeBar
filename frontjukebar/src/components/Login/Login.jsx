@@ -56,10 +56,10 @@ console.log("Respuesta login: " + JSON.stringify(response))
       <div class="main-login-signup">
        <h1>Log in</h1>
         <div className="left-column">
-          <label htmlFor="username">Username</label>
+          <h3 htmlFor="username">Username</h3>
           <input onChange={this.handleChange} type="text" id="username" name="username" value={this.state.username} />
           <br />
-          <label htmlFor="password">Password</label>
+          <h3 htmlFor="password">Password</h3>
           <input onChange={this.handleChange} type="password" id="password" name="password" value={this.state.password} />
           </div>
           <br />

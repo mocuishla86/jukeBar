@@ -62,8 +62,8 @@ export default class Search extends Component {
     
 
     return (
-      <div>
-        <p>Search a song!</p>
+      <div className="search-song-container">
+        <h2>Search your song!</h2>
         <div className="left-column">
           <div>
             
@@ -78,7 +78,7 @@ export default class Search extends Component {
           </div>
         </div>
         <br />
-        <button onClick={this.handleSubmit}>Go!</button>
+        <button onClick={this.handleSubmit}>Search!</button>
         <div>
           {this.state.tracks.map((track, index)=>{
             return(

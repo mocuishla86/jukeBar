@@ -42,9 +42,9 @@ export default class CreateParty extends Component {
     }
 
     return (
-      <div>
-        <p>Create Party</p>
-        <div className="left-column">
+      <div className="create-party-container">
+        <h3>Create Party</h3>
+        <div>
           <div>
             
             <input
@@ -62,6 +62,9 @@ export default class CreateParty extends Component {
         <span>{this.state.message}</span>
         <p>
           <Link to="/playlists">My playlists</Link>
+        </p>
+        <p>
+          <Link to="/profile">Back</Link>
         </p>
       </div>
     );

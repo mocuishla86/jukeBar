@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../auth/service";
+import { Redirect } from 'react-router'
 
 export default class Signup extends Component {
   constructor(props) {
@@ -25,7 +26,8 @@ export default class Signup extends Component {
       .then(response => {
         this.setState({
           username: "",
-          password: ""
+          password: "",
+          signed:true
         });
         
         this.props.getUser(response);
@@ -34,7 +36,11 @@ export default class Signup extends Component {
   };
 
   render() {
-    console.log(this.state)
+    const { signed } = this.state;
+
+    if (signed) {
+      return <Redirect to='/login'/>;
+    }
     return (
       <div>
         <h2>Sign up!</h2>

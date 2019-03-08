@@ -19,6 +19,7 @@ import service from "./components/auth/service";
 import CreateSpotifyParty from "./components/CreateSpotifyParty/CreateSpotifyParty";
 
 
+
 class App extends Component {
 
   constructor(props) {
@@ -40,9 +41,9 @@ class App extends Component {
     return (
       <div className="App">
       {/* <Main /> */}
-      <h2 class="main-logo">jukeBar</h2>
-     
-      <Link to="/main" className="Home">HOME</Link>
+      <h2 class="main-logo"><Link to="/main" className="Home">jukeBar</Link></h2>
+    
+      
         <Switch>
           <Route exact path="/main" component={Main} />
           <Route exact path="/signup" render={() => <Signup getUser={this.getUser} />}/>

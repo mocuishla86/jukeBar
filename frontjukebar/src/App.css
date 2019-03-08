@@ -2,22 +2,27 @@
 
 body{
   font-family: 'Jura', sans-serif;
+  background: url('https://nyc3.digitaloceanspaces.com/servercarlosesverde/elevenews/wp-content/uploads/2018/12/12222219/Party.jpg');
 
 }
 
 input[type="text"] {
   font-family: 'Jura', sans-serif;
-  font-size: 20px;
-  border-bottom: 1px solid black;
-  margin:15px;
+  font-size: 18px;
+  font-weight: 700;
+  /* border-bottom: 1px solid black; */
+  margin: 2px;
+  border-radius: 10px;
 
 }
 
 input[type="password"] {
   font-family: 'Jura', sans-serif;
-  font-size: 20px;
-  border-bottom: 1px solid black;
-  margin:15px;
+  font-size: 18px;
+  font-weight: 700;
+  /* border-bottom: 1px solid black; */
+  margin: 2px;
+  border-radius: 10px;
 }
 
 button{
@@ -25,9 +30,9 @@ button{
   border: none;
   border-radius: 12px;
   color: white;
-  padding: 16px 32px;
+  /* padding: 16px 32px; */
   text-decoration: none;
-  margin: 4px 2px;
+  margin: 14px 20px;
   font-size: 1.4em;
 }
 
@@ -67,42 +72,134 @@ button{
 }
 
 .main-logo{
-  background-color: rgb(158, 51, 158);
+  background-color: rgb(19, 19, 19);
   margin-top: auto;
   padding-bottom: 20px;
   position: static;
-padding-top: 20px;
-font-weight: lighter;
-font-size: 40px;
-color: white;
-letter-spacing: 1px;
-
+  /* padding-top: 20px; */
+  font-weight: lighter;
+  font-size: 27px;
+  color: white;
+  letter-spacing: 7px;
+  opacity: 0.7;
 
 }
 
+.main-logo a {
+  color:white;
+  font-weight: bolder;
+}
+.qr-link{
+  background-color: rgb(158, 51, 158);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 5px;
+  margin: 4px 90px;
+  font-size: 0.7em;
+}
 .profile-container{
-  display:flex;
+  border-top: 2px solid rgb(158, 51, 158);
+  border-radius: 25px;
+  margin: 30px;
+  /* padding-top: 20px; */
+  padding: 10%;
+  background-color: whitesmoke;
+  opacity: 0.7;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
   flex-direction: column;
+  
 }
 .home{
 color:red;
 }
+.search-song-container{
+  border-top: 2px solid rgb(158, 51, 158);
+  border-radius: 25px;
+  /* margin: 30px; */
+  padding-top: 20px;
+  /* padding: 10%; */
+  background-color: whitesmoke;
+  opacity: 0.7;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.playlist-detail-container{
+  border-top: 2px solid rgb(158, 51, 158);
+  border-radius: 25px;
+  /* margin: 30px; */
+  padding-top: 20px;
+  /* padding: 10%; */
+  background-color: whitesmoke;
+  opacity: 0.7;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.create-party-container{
+  border-top: 2px solid rgb(158, 51, 158);
+  border-radius: 25px;
+  /* margin: 30px; */
+  padding-top: 20px;
+  /* padding: 10%; */
+  background-color: whitesmoke;
+  opacity: 0.7;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.playlist-container{
+  border-top: 2px solid rgb(158, 51, 158);
+  border-radius: 25px;
+  /* margin: 30px; */
+  /* padding-top: 20px; */
+  /* padding: 10%; */
+  background-color: whitesmoke;
+  opacity: 0.7;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
 .main-login-signup{
   border-top: 2px solid rgb(158, 51, 158);
-    border-radius: 25px;
-    margin: 30px;
-    padding-top: 20px;
+  border-radius: 25px;
+  margin: 30px;
+  padding-top: 20px;
+  background-color: whitesmoke;
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-login-signup p {
   margin:40px;
-  font-size: 1.3em;
+  font-size: 1.4em;
+  font-weight: bolder;
+
+  
+}
+.logout{
+  color: white;
+  font-weight: bolder;
+  margin-top: 190px;
 }
 
+.profile-container a {
+  text-decoration: none;
+  font-weight: bolder;
+  font-size:1.6em;
+}
 a{
   text-decoration: none;
   font-weight: bolder;
-  font-size:1.5em;
+  font-size:1.3em;
 
 }
 
@@ -111,7 +208,8 @@ border: 1px solid  rgb(158, 51, 158);
 }
 
 .info-track img{
-  width: 25%;
+  margin: 0 90px;
+  width: 40%;
 }
 .info-track h3{
   color: blueviolet;
